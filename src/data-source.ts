@@ -18,4 +18,8 @@ export const AppDataSource = new DataSource({
     ],
     migrations: [],
     subscribers: [],
+    cache: true,
+    extra: {
+        connectionLimit: 100 // connexion pool
+    }
 });

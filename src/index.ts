@@ -1,17 +1,13 @@
 import { Request, Response, NextFunction } from "express";
-import rateLimit from "express-rate-limit";
 import { AppDataSource } from "./data-source";
 import apiRouter from "./routes/index.route";
 import ErrorResponse from "./utils/errorResponse.util";
 import express = require("express");
 import Env from "./configs/config";
-const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-const xss = require('xss-clean');
 
 const publicContent = require('../app.json');
-
 
 const PORT = Env.APP_PORT || 9009;
 
@@ -28,13 +24,6 @@ const corsOptions = {
     }
 }
 
-const apiLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 mins
-    max: 100,
-    standardHeaders: true,
-    legacyHeaders: false,
-});
-
 AppDataSource.initialize().then(async () => {
     console.log('Datasource initialized successfully');
 }).catch((error => {
@@ -47,9 +36,7 @@ app.use(
     bodyParser.json({ limit: '100mb' }),
     bodyParser.urlencoded({ limit: '100mb', extended: true }),
     express.json(),
-    cookieParser(),
     helmet(),
-    xss(),
 );
 
 app.use(cors());

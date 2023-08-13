@@ -1,11 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, Index, BaseEntity } from 'typeorm';
 
-@Entity()
-@Index('idx_one_24', ['one24'])
-@Index('idx_two_24', ['two24'])
-@Index('idx_curr_3', ['curr3'])
-@Index('idx_target', ['target'])
-
 export default abstract class DataEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
