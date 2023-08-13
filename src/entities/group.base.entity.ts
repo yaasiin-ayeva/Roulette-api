@@ -1,8 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, Index, BaseEntity } from 'typeorm';
+import { PrimaryGeneratedColumn, Column, Index } from 'typeorm';
+import BaseModel from './base.entity';
 
-export default abstract class DataEntity extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+export default abstract class DataEntity extends BaseModel {
 
     @Column({ name: 'one_24' })
     @Index()

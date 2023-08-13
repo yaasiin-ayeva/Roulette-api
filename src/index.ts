@@ -27,7 +27,7 @@ const corsOptions = {
 AppDataSource.initialize().then(async () => {
     console.log('Datasource initialized successfully');
 }).catch((error => {
-    console.log(`Datasource Error: ${error.message}`);
+    console.log(`DataSource Error: ${error.message}`);
 }));
 
 const app = express();
