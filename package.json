@@ -23,7 +23,7 @@
     "nodemon": "^2.0.16",
     "path": "^0.12.7",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "0.3.12",
+    "typeorm": "0.3.17",
     "validator": "^13.9.0",
     "xss-clean": "^0.1.1"
   },
