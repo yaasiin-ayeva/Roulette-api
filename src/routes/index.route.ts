@@ -1,10 +1,7 @@
 import { Router } from "express";
-import authRoutes from "./auth.route";
-import otpRoutes from "./otp.route";
+import groupeRoutes from "./group.route";
 
 const apiRouter = Router();
-
-apiRouter.use('/otp', otpRoutes);
-apiRouter.use('/auth', authRoutes);
+apiRouter.use('/roulette', groupeRoutes);
 
 export default apiRouter;
