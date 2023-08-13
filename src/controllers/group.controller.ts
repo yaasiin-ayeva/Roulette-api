@@ -19,8 +19,8 @@ export default class Controller {
             return res.status(200).json({
                 success: true,
                 message: 'Data retrieved successfully',
-                count: data.length,
-                data: data
+                count: data[1],
+                data: data[0]
             });
         } catch (e) {
             next(new ErrorResponse(e.message, 500));
@@ -33,8 +33,8 @@ export default class Controller {
             return res.status(200).json({
                 success: true,
                 message: 'Data retrieved successfully',
-                count: data.length,
-                data: data
+                count: data[1],
+                data: data[0]
             });
         } catch (e) {
             next(new ErrorResponse(e.message, 500));
