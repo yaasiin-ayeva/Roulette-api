@@ -15,15 +15,12 @@ export default class Controller {
 
     public fetchAHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const data = await this.aService.find(req.body);
-
-            console.log('this.fetchAHandler', req.body);
+            const data = await this.aService.findTargets(req.body);
 
             return res.status(200).json({
                 success: true,
                 message: 'Data retrieved successfully',
-                count: data[1],
-                data: data[0]
+                data: data
             });
         } catch (e) {
             next(new ErrorResponse(e.message, 500));
@@ -32,16 +29,12 @@ export default class Controller {
 
     public fetchBHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const data = await this.bService.find(req.body);
-
-            console.log('this.fetchBHandler', req.body);
-            
+            const data = await this.bService.findTargets(req.body);
 
             return res.status(200).json({
                 success: true,
                 message: 'Data retrieved successfully',
-                count: data[1],
-                data: data[0]
+                data: data
             });
         } catch (e) {
             next(new ErrorResponse(e.message, 500));

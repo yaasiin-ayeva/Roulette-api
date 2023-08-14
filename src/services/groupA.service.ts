@@ -17,4 +17,17 @@ export class aGroupService {
             .andWhere("group_a.Curr_3 = :Curr_3", { Curr_3: data.Curr_3 })
             .getManyAndCount();
     }
+
+    async findTargets(data: any) {
+        const results = await this.repository.createQueryBuilder('group_a')
+            .select('group_a.Target', 'target')
+            .where("group_a.one_24 = :one_24", { one_24: data.one_24 })
+            .andWhere("group_a.two_24 = :two_24", { two_24: data.two_24 })
+            .andWhere("group_a.Curr_3 = :Curr_3", { Curr_3: data.Curr_3 })
+            .getRawMany();
+
+        const uniqueTargets = new Set(results.map(result => result.target));
+
+        return Array.from(uniqueTargets);
+    }
 }
