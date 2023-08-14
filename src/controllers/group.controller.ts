@@ -16,6 +16,9 @@ export default class Controller {
     public fetchAHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const data = await this.aService.find(req.body);
+
+            console.log('this.fetchAHandler', req.body);
+
             return res.status(200).json({
                 success: true,
                 message: 'Data retrieved successfully',
@@ -30,6 +33,10 @@ export default class Controller {
     public fetchBHandler = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const data = await this.bService.find(req.body);
+
+            console.log('this.fetchBHandler', req.body);
+            
+
             return res.status(200).json({
                 success: true,
                 message: 'Data retrieved successfully',
